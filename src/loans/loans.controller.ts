@@ -1,0 +1,16 @@
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+
+
+@Controller('loans')
+export class LoansController {
+
+    @Post()
+    createLoan(@Body() createLoanDto: any) {
+        return `Loan created for ${createLoanDto.userId}`;
+    }
+
+    @Get(':id')
+    getLoanStatus(@Param('id') id: string){
+        return `status of Loan ${id}`
+    }
+}
